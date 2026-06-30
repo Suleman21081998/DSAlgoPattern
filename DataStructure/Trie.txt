@@ -1,0 +1,277 @@
+Trie Declaration and Initialization for Competitive Programming
+
+Definition
+- A trie (pronounced "try") is a tree-based data structure used to store strings.
+- Each node represents a character.
+- Paths from the root to a node represent prefixes of stored words.
+- It is very useful for dictionary lookups, autocomplete, prefix search, and word matching problems.
+
+Important Idea: Internal Working
+- Each node contains links to child nodes for the next character.
+- A flag is used to mark the end of a word.
+- Insertions and searches are done character by character.
+- Because every character is processed once, trie operations are efficient for strings.
+
+C++
+- Declaration using struct Node:
+  struct Node {
+      unordered_map<char, Node*> child;
+      bool endOfWord;
+      Node() : endOfWord(false) {}
+  };
+- Creating the root node:
+  Node* root = new Node();
+
+- Initialization:
+  insert("apple");
+  insert("app");
+  insert("banana");
+
+- Basic operations:
+  - insert(word)
+  - search(word)
+  - startsWith(prefix)
+  - delete(word)
+
+- Time complexity:
+  - Insert: O(L)
+  - Search: O(L)
+  - Delete: O(L)
+  - where L is the length of the word/prefix
+
+- Example:
+  insert("cat");
+  search("cat");
+
+- Proper class example in C++:
+  class Trie {
+  private:
+      struct Node {
+          unordered_map<char, Node*> child;
+          bool endOfWord;
+          Node() : endOfWord(false) {}
+      };
+      Node* root;
+  public:
+      Trie() { root = new Node(); }
+
+      void insert(const string& word) {
+          Node* cur = root;
+          for (char c : word) {
+              if (!cur->child.count(c)) cur->child[c] = new Node();
+              cur = cur->child[c];
+          }
+          cur->endOfWord = true;
+      }
+
+      bool search(const string& word) {
+          Node* cur = root;
+          for (char c : word) {
+              if (!cur->child.count(c)) return false;
+              cur = cur->child[c];
+          }
+          return cur->endOfWord;
+      }
+
+      bool startsWith(const string& prefix) {
+          Node* cur = root;
+          for (char c : prefix) {
+              if (!cur->child.count(c)) return false;
+              cur = cur->child[c];
+          }
+          return true;
+      }
+
+      bool deleteWord(Node* cur, const string& word, int index) {
+          if (index == word.size()) {
+              if (!cur->endOfWord) return false;
+              cur->endOfWord = false;
+              return cur->child.empty();
+          }
+          char c = word[index];
+          if (!cur->child.count(c)) return false;
+          bool shouldDelete = deleteWord(cur->child[c], word, index + 1);
+          if (shouldDelete) {
+              delete cur->child[c];
+              cur->child.erase(c);
+          }
+          return cur->child.empty() && !cur->endOfWord;
+      }
+
+      void deleteWord(const string& word) {
+          deleteWord(root, word, 0);
+      }
+  };
+
+Java
+- Declaration using class Node:
+  class Node {
+      HashMap<Character, Node> children = new HashMap<>();
+      boolean endOfWord;
+  }
+- Creating root node:
+  Node root = new Node();
+
+- Initialization:
+  insert("apple");
+  insert("app");
+  insert("banana");
+
+- Basic operations:
+  - insert(word)
+  - search(word)
+  - startsWith(prefix)
+  - delete(word)
+
+- Time complexity:
+  - Insert: O(L)
+  - Search: O(L)
+  - Delete: O(L)
+
+- Example:
+  insert("dog");
+  search("dog");
+
+- Proper class example in Java:
+  class Trie {
+      class Node {
+          HashMap<Character, Node> children = new HashMap<>();
+          boolean endOfWord;
+      }
+
+      private final Node root = new Node();
+
+      public void insert(String word) {
+          Node cur = root;
+          for (char c : word.toCharArray()) {
+              cur.children.putIfAbsent(c, new Node());
+              cur = cur.children.get(c);
+          }
+          cur.endOfWord = true;
+      }
+
+      public boolean search(String word) {
+          Node cur = root;
+          for (char c : word.toCharArray()) {
+              if (!cur.children.containsKey(c)) return false;
+              cur = cur.children.get(c);
+          }
+          return cur.endOfWord;
+      }
+
+      public boolean startsWith(String prefix) {
+          Node cur = root;
+          for (char c : prefix.toCharArray()) {
+              if (!cur.children.containsKey(c)) return false;
+              cur = cur.children.get(c);
+          }
+          return true;
+      }
+
+      public void delete(String word) {
+          delete(root, word, 0);
+      }
+
+      private boolean delete(Node cur, String word, int index) {
+          if (index == word.length()) {
+              if (!cur.endOfWord) return false;
+              cur.endOfWord = false;
+              return cur.children.isEmpty();
+          }
+          char c = word.charAt(index);
+          if (!cur.children.containsKey(c)) return false;
+          boolean shouldDelete = delete(cur.children.get(c), word, index + 1);
+          if (shouldDelete) {
+              cur.children.remove(c);
+          }
+          return cur.children.isEmpty() && !cur.endOfWord;
+      }
+  }
+
+Python
+- Declaration using class Node:
+  class Node:
+      def __init__(self):
+          self.children = {}
+          self.endOfWord = False
+- Creating root node:
+  root = Node()
+
+- Initialization:
+  insert("apple")
+  insert("app")
+  insert("banana")
+
+- Basic operations:
+  - insert(word)
+  - search(word)
+  - startsWith(prefix)
+  - delete(word)
+
+- Time complexity:
+  - Insert: O(L)
+  - Search: O(L)
+  - Delete: O(L)
+
+- Example:
+  insert("car")
+  search("car")
+
+- Proper class example in Python:
+  class TrieNode:
+      def __init__(self):
+          self.children = {}
+          self.endOfWord = False
+
+  class Trie:
+      def __init__(self):
+          self.root = TrieNode()
+
+      def insert(self, word):
+          cur = self.root
+          for ch in word:
+              if ch not in cur.children:
+                  cur.children[ch] = TrieNode()
+              cur = cur.children[ch]
+          cur.endOfWord = True
+
+      def search(self, word):
+          cur = self.root
+          for ch in word:
+              if ch not in cur.children:
+                  return False
+              cur = cur.children[ch]
+          return cur.endOfWord
+
+      def startsWith(self, prefix):
+          cur = self.root
+          for ch in prefix:
+              if ch not in cur.children:
+                  return False
+              cur = cur.children[ch]
+          return True
+
+      def delete(self, word):
+          def dfs(node, index):
+              if index == len(word):
+                  if not node.endOfWord:
+                      return False
+                  node.endOfWord = False
+                  return len(node.children) == 0
+
+              ch = word[index]
+              if ch not in node.children:
+                  return False
+
+              should_delete = dfs(node.children[ch], index + 1)
+              if should_delete:
+                  del node.children[ch]
+              return len(node.children) == 0 and not node.endOfWord
+
+          dfs(self.root, 0)
+
+Competitive Programming Tips
+- Trie is very useful for prefix-based problems.
+- It is faster than checking every word in a list for many prefix searches.
+- For large alphabets, use maps or arrays of children.
+- For memory efficiency, keep the node count low and reuse structures when possible.

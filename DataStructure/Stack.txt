@@ -1,0 +1,60 @@
+Stack Declaration and Initialization for Competitive Programming
+
+Definition
+- A stack is a linear data structure that follows the Last In, First Out (LIFO) principle.
+- The last inserted element is removed first.
+- Common stack operations are:
+  - push(x): insert element x
+  - pop(): remove the top element
+  - top()/peek(): view the top element
+  - empty(): check whether the stack is empty
+- Stacks are useful for problems like balanced parentheses, undo operations, expression evaluation, and DFS.
+
+C++
+- Declaration using standard library stack:
+  stack<int> s;
+- Initialization:
+  stack<int> s1;
+  s1.push(10);
+  s1.push(20);
+  s1.push(30);
+- Empty stack:
+  stack<int> s2;
+- Copying from another stack:
+  stack<int> s3 = s1;
+
+Java
+- Declaration using Stack class:
+  Stack<Integer> s = new Stack<>();
+- Initialization:
+  Stack<Integer> s1 = new Stack<>();
+  s1.push(10);
+  s1.push(20);
+  s1.push(30);
+- Empty stack:
+  Stack<Integer> s2 = new Stack<>();
+- Access top element:
+  int top = s1.peek();
+
+Python
+- Declaration using list as a stack:
+  stack = []
+- Initialization:
+  stack = [10, 20, 30]
+- Push operation:
+  stack.append(10)
+  stack.append(20)
+- Pop operation:
+  stack.pop()
+- Top element:
+  stack[-1]
+
+Common Notes
+- In C++, stack is implemented using container adapters and usually works with push/pop.
+- In Java, Stack is a class, but ArrayDeque is often preferred for better performance.
+- In Python, lists are commonly used as stacks because append() and pop() are efficient.
+
+Competitive Programming Tips
+- Use stack when you need reverse order processing.
+- Always check empty before calling pop() or top().
+- For balanced bracket problems, stack is one of the most common solutions.

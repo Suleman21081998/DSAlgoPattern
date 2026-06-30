@@ -1,0 +1,152 @@
+Priority Queue Declaration and Initialization for Competitive Programming
+
+Definition
+- A priority queue is a data structure where each element has a priority.
+- The element with the highest priority is removed first.
+- It is commonly used for scheduling, greedy algorithms, Dijkstra's algorithm, and heaps.
+- A priority queue is usually implemented using a heap.
+
+Important Idea: Min Heap and Max Heap
+- Max Heap: the largest element comes out first.
+- Min Heap: the smallest element comes out first.
+- In competitive programming:
+  - Use max heap when you want the largest element first.
+  - Use min heap when you want the smallest element first.
+- How it works internally:
+  - A heap is a complete binary tree stored in an array.
+  - In a min heap, the parent is always smaller than or equal to its children.
+  - In a max heap, the parent is always larger than or equal to its children.
+  - Because of this property, the root is always the minimum or maximum element.
+
+C++
+- Declaration using priority_queue:
+  priority_queue<int> maxHeap;
+- Declaration for min heap:
+  priority_queue<int, vector<int>, greater<int>> minHeap;
+
+- Initialization:
+  priority_queue<int> maxHeap;
+  maxHeap.push(10);
+  maxHeap.push(30);
+  maxHeap.push(20);
+
+  priority_queue<int, vector<int>, greater<int>> minHeap;
+  minHeap.push(10);
+  minHeap.push(30);
+  minHeap.push(20);
+
+- Basic operations:
+  - push(x): insert element
+  - pop(): remove top element
+  - top(): access top element
+  - empty(): check if empty
+  - size(): get current size
+- Time complexity:
+  - Insert: O(log n)
+  - Remove top: O(log n)
+  - Access top: O(1)
+
+- Example:
+  maxHeap.push(5);
+  maxHeap.push(1);
+  maxHeap.push(9);
+  cout << maxHeap.top() << endl;   // 9
+  maxHeap.pop();
+  cout << maxHeap.top() << endl;   // 5
+
+- Min heap behavior:
+  minHeap.push(5);
+  minHeap.push(1);
+  minHeap.push(9);
+  cout << minHeap.top() << endl;   // 1
+
+Java
+- Declaration for max heap:
+  PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+- Declaration for min heap:
+  PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+- Initialization:
+  PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+  maxHeap.add(10);
+  maxHeap.add(30);
+  maxHeap.add(20);
+
+  PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+  minHeap.add(10);
+  minHeap.add(30);
+  minHeap.add(20);
+
+- Basic operations:
+  - add(x) / offer(x): insert element
+  - remove() / poll(): remove top element
+  - peek(): access top element
+  - isEmpty(): check if empty
+  - size(): get current size
+- Time complexity:
+  - Insert: O(log n)
+  - Remove top: O(log n)
+  - Access top: O(1)
+
+- Example:
+  maxHeap.add(5);
+  maxHeap.add(1);
+  maxHeap.add(9);
+  System.out.println(maxHeap.peek());   // 9
+  maxHeap.poll();
+  System.out.println(maxHeap.peek());   // 5
+
+- Min heap behavior:
+  minHeap.add(5);
+  minHeap.add(1);
+  minHeap.add(9);
+  System.out.println(minHeap.peek());   // 1
+
+Python
+- Declaration for min heap:
+  import heapq
+  minHeap = []
+- Declaration for max heap:
+  import heapq
+  maxHeap = []
+  # use negative values for max-heap simulation
+
+- Initialization:
+  import heapq
+  minHeap = []
+  heapq.heappush(minHeap, 10)
+  heapq.heappush(minHeap, 30)
+  heapq.heappush(minHeap, 20)
+
+  maxHeap = []
+  heapq.heappush(maxHeap, -10)
+  heapq.heappush(maxHeap, -30)
+  heapq.heappush(maxHeap, -20)
+
+- Basic operations:
+  - heappush(heap, x): insert element
+  - heappop(heap): remove smallest element
+  - heap[0]: access the root/top element
+  - len(heap): get size
+- Time complexity:
+  - Insert: O(log n)
+  - Remove top: O(log n)
+  - Access top: O(1)
+
+- Example:
+  heapq.heappush(minHeap, 5)
+  heapq.heappush(minHeap, 1)
+  heapq.heappush(minHeap, 9)
+  print(minHeap[0])   // 1
+
+- Max heap behavior:
+  heapq.heappush(maxHeap, -5)
+  heapq.heappush(maxHeap, -1)
+  heapq.heappush(maxHeap, -9)
+  print(-maxHeap[0])  // 9
+
+Competitive Programming Tips
+- Use a min heap when you need the smallest element first.
+- Use a max heap when you need the largest element first.
+- Priority queues are very useful in greedy problems and shortest-path algorithms.
+- Always check if the heap is empty before using pop/peek.

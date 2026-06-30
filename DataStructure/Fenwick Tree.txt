@@ -1,0 +1,170 @@
+Fenwick Tree (Binary Indexed Tree) Declaration and Initialization for Competitive Programming
+
+Definition
+- A Fenwick Tree, also called a Binary Indexed Tree (BIT), is a data structure used for prefix sum queries and point updates.
+- It supports fast operations on arrays without needing a full segment tree.
+- It is often used when many updates and prefix queries are required.
+
+Important Idea: Internal Working
+- The tree stores partial sums in an array-like structure.
+- Each index i stores information for a range ending at i.
+- Update and prefix sum operations use bitwise operations: i += i & -i.
+- This makes both operations efficient.
+
+C++
+- Declaration:
+  class FenwickTree {
+      vector<int> bit;
+      int n;
+  };
+
+- Initialization:
+  vector<int> arr = {1, 3, 5, 7, 9};
+  FenwickTree bit(arr.size());
+  for (int i = 0; i < arr.size(); i++) bit.add(i + 1, arr[i]);
+
+- Basic operations:
+  - add(index, value)
+  - sum(index)
+  - rangeSum(l, r)
+
+- Time complexity:
+  - Point update: O(log n)
+  - Prefix sum: O(log n)
+  - Range sum: O(log n)
+
+- Proper class example in C++:
+  class FenwickTree {
+  private:
+      vector<int> bit;
+      int n;
+  public:
+      FenwickTree(int n) : n(n), bit(n + 1, 0) {}
+
+      void add(int index, int value) {
+          while (index <= n) {
+              bit[index] += value;
+              index += index & -index;
+          }
+      }
+
+      int sum(int index) {
+          int ans = 0;
+          while (index > 0) {
+              ans += bit[index];
+              index -= index & -index;
+          }
+          return ans;
+      }
+
+      int rangeSum(int l, int r) {
+          return sum(r) - sum(l - 1);
+      }
+  };
+
+Java
+- Declaration:
+  class FenwickTree {
+      int[] bit;
+      int n;
+  }
+
+- Initialization:
+  int[] arr = {1, 3, 5, 7, 9};
+  FenwickTree bit = new FenwickTree(arr.length);
+  for (int i = 0; i < arr.length; i++) bit.add(i + 1, arr[i]);
+
+- Basic operations:
+  - add(index, value)
+  - sum(index)
+  - rangeSum(l, r)
+
+- Time complexity:
+  - Point update: O(log n)
+  - Prefix sum: O(log n)
+  - Range sum: O(log n)
+
+- Proper class example in Java:
+  class FenwickTree {
+      private int[] bit;
+      private int n;
+
+      public FenwickTree(int n) {
+          this.n = n;
+          this.bit = new int[n + 1];
+      }
+
+      public void add(int index, int value) {
+          while (index <= n) {
+              bit[index] += value;
+              index += index & -index;
+          }
+      }
+
+      public int sum(int index) {
+          int ans = 0;
+          while (index > 0) {
+              ans += bit[index];
+              index -= index & -index;
+          }
+          return ans;
+      }
+
+      public int rangeSum(int l, int r) {
+          return sum(r) - sum(l - 1);
+      }
+  }
+
+Python
+- Declaration:
+  class FenwickTree:
+      pass
+
+- Initialization:
+  arr = [1, 3, 5, 7, 9]
+  bit = FenwickTree(len(arr))
+  for i, value in enumerate(arr, start=1):
+      bit.add(i, value)
+
+- Basic operations:
+  - add(index, value)
+  - sum(index)
+  - range_sum(l, r)
+
+- Time complexity:
+  - Point update: O(log n)
+  - Prefix sum: O(log n)
+  - Range sum: O(log n)
+
+- Proper class example in Python:
+  class FenwickTree:
+      def __init__(self, n):
+          self.n = n
+          self.bit = [0] * (n + 1)
+
+      def add(self, index, value):
+          while index <= self.n:
+              self.bit[index] += value
+              index += index & -index
+
+      def sum(self, index):
+          ans = 0
+          while index > 0:
+              ans += self.bit[index]
+              index -= index & -index
+          return ans
+
+      def range_sum(self, l, r):
+          return self.sum(r) - self.sum(l - 1)
+
+Use Cases
+- Prefix sum queries
+- Point updates on arrays
+- Frequency counting problems
+- Competitive programming problems requiring many prefix sums
+- Inversion count and cumulative frequency problems
+
+Competitive Programming Tips
+- Fenwick tree is great when you need fast prefix sums after many updates.
+- It is simpler than a segment tree for prefix-based problems.
+- For range minimum/maximum queries, a segment tree is usually more suitable.

@@ -1,0 +1,63 @@
+Array Declaration and Initialization for Competitive Programming
+
+Definition
+- An array is a collection of elements of the same type stored in contiguous memory locations.
+- Declaration means telling the program the array name and type, and optionally its size.
+- Initialization means assigning values to the array at the time of creation or later.
+- In competitive programming, arrays are commonly used for storing inputs, frequencies, prefixes, and matrices.
+- Important points:
+  - Indexing usually starts from 0 in C++, Java, Python, and C.
+  - Arrays have fixed size in most languages unless you use dynamic structures like vector/list.
+  - Accessing an element is usually O(1), but insertion/deletion in the middle is O(n).
+
+Declaration vs Initialization
+- Declaration: int arr[5];
+- Initialization: int arr[5] = {1, 2, 3, 4, 5};
+- Declaration with default values: int arr[5] = {0};
+
+C++
+- Static array declaration:
+  int arr[100];
+- Static array initialization:
+  int arr2[5] = {1, 2, 3, 4, 5};
+- Dynamic array using vector:
+  vector<int> v(10);           // 10 elements, all zero
+  vector<int> v2(10, 7);       // 10 elements, all 7
+  vector<int> v3 = {1, 2, 3};  // initialized directly
+- 2D array:
+  int mat[3][4];
+  vector<vector<int>> mat2(3, vector<int>(4, 0));
+
+Java
+- Static array declaration:
+  int[] arr = new int[100];
+- Static array initialization:
+  int[] arr2 = {1, 2, 3, 4, 5};
+- Dynamic list (not a fixed-size array):
+  ArrayList<Integer> list = new ArrayList<>();
+- 2D array:
+  int[][] mat = new int[3][4];
+
+Python
+- List declaration and initialization:
+  arr = [0] * 100
+  arr2 = [1, 2, 3, 4, 5]
+- Creating a 2D list:
+  mat = [[0] * 4 for _ in range(3)]
+- Dynamic behavior:
+  arr.append(10)
+
+C
+- Static array declaration:
+  int arr[100];
+- Static array initialization:
+  int arr2[5] = {1, 2, 3, 4, 5};
+- 2D array:
+  int mat[3][4];
+
+Competitive Programming Tips
+- Prefer fixed-size arrays when the maximum size is known.
+- Use vector/list when the size is unknown or changes often.
+- Always check bounds before accessing an index.
+- For large inputs, initialize arrays with 0 or -1 depending on the problem need.
+

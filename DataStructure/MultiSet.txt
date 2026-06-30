@@ -1,0 +1,97 @@
+Multiset Declaration and Initialization for Competitive Programming
+
+Definition
+- A multiset is a collection that allows duplicate elements.
+- It is similar to a set, but each value can appear multiple times.
+- It is useful for counting frequencies, sorting repeated values, and handling duplicates efficiently.
+
+Important Idea: Internal Working
+- A multiset stores elements in a sorted order by default in many languages.
+- It keeps duplicates as separate entries.
+- Internally, it is usually implemented using a balanced tree or a hash-based structure with counts.
+- Because of this, operations like insert, remove, and search are fast and ordered.
+
+C++
+- Declaration using multiset:
+  multiset<int> ms;
+- Initialization:
+  multiset<int> ms;
+  ms.insert(10);
+  ms.insert(10);
+  ms.insert(20);
+
+- Basic operations:
+  - insert(x)
+  - erase(x)
+  - count(x)
+  - find(x)
+  - size()
+  - empty()
+
+- Time complexity:
+  - Insert: O(log n)
+  - Access/search by value: O(log n)
+  - Remove by value: O(log n)
+
+- Example:
+  multiset<int> ms = {1, 2, 2, 3};
+  cout << ms.count(2) << endl;
+
+Java
+- Java does not have a built-in multiset class in the standard library.
+- It is usually implemented using HashMap or TreeMap with counts.
+
+- Declaration using HashMap for multiset behavior:
+  HashMap<Integer, Integer> freq = new HashMap<>();
+
+- Initialization:
+  HashMap<Integer, Integer> freq = new HashMap<>();
+  freq.put(10, 2);
+  freq.put(20, 1);
+
+- Basic operations:
+  - put(key, count)
+  - get(key)
+  - remove(key)
+  - containsKey(key)
+  - size()
+
+- Time complexity:
+  - Insert: average O(1)
+  - Access/search by value: average O(1)
+  - Remove by value: average O(1)
+
+- Example:
+  HashMap<Integer, Integer> freq = new HashMap<>();
+  freq.put(2, 3);
+  System.out.println(freq.get(2));
+
+Python
+- Declaration using Counter or collections.Counter:
+  from collections import Counter
+  cnt = Counter()
+- Initialization:
+  from collections import Counter
+  cnt = Counter([1, 2, 2, 3])
+
+- Basic operations:
+  - cnt[x] += 1
+  - cnt[x] -= 1
+  - cnt[x]
+  - cnt.keys()
+  - sum(cnt.values())
+
+- Time complexity:
+  - Insert/update: average O(1)
+  - Access by key: average O(1)
+  - Remove by key: average O(1)
+
+- Example:
+  from collections import Counter
+  cnt = Counter([1, 2, 2, 3])
+  print(cnt[2])
+
+Competitive Programming Tips
+- Use multiset when duplicates matter and you need ordered access.
+- In Java, use a HashMap or TreeMap to simulate multiset behavior.
+- In Python, Counter is very convenient for frequency-based problems.

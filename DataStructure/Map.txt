@@ -1,0 +1,120 @@
+Map / HashMap Declaration and Initialization for Competitive Programming
+
+Definition
+- A map is a data structure that stores data as key-value pairs.
+- Each key is unique, and each key is associated with one value.
+- It is useful for frequency counting, lookup tables, caching, and storing relationships between values.
+- In many languages, maps are implemented using hash tables, which makes lookup fast.
+
+Important Idea: Internal Working
+- A hash map stores elements using a hash function.
+- The hash function converts a key into an index in an internal array.
+- If two keys produce the same hash, a collision occurs.
+- Collisions are handled using techniques like chaining or open addressing.
+- Because of this, average-time lookup is very fast.
+
+C++
+- Declaration using unordered_map:
+  unordered_map<string, int> mp;
+- Declaration using map (ordered):
+  map<string, int> mp;
+
+- Initialization:
+  unordered_map<string, int> mp;
+  mp["apple"] = 5;
+  mp["banana"] = 3;
+
+  map<string, int> orderedMp;
+  orderedMp["apple"] = 5;
+  orderedMp["banana"] = 3;
+
+- Basic operations:
+  - insert({key, value})
+  - mp[key] = value
+  - find(key)
+  - erase(key)
+  - size()
+  - empty()
+
+- Time complexity:
+  - Insert: average O(1), worst O(n)
+  - Access by key: average O(1), worst O(n)
+  - Remove by key: average O(1), worst O(n)
+
+- Example:
+  unordered_map<string, int> mp;
+  mp["a"] = 10;
+  mp["b"] = 20;
+  cout << mp["a"] << endl;
+
+Java
+- Declaration using HashMap:
+  HashMap<String, Integer> map = new HashMap<>();
+- Declaration using TreeMap (sorted):
+  TreeMap<String, Integer> map = new TreeMap<>();
+
+- Initialization:
+  HashMap<String, Integer> map = new HashMap<>();
+  map.put("apple", 5);
+  map.put("banana", 3);
+
+  TreeMap<String, Integer> sortedMap = new TreeMap<>();
+  sortedMap.put("apple", 5);
+  sortedMap.put("banana", 3);
+
+- Basic operations:
+  - put(key, value)
+  - get(key)
+  - remove(key)
+  - containsKey(key)
+  - size()
+  - isEmpty()
+
+- Time complexity:
+  - Insert: average O(1), worst O(n)
+  - Access by key: average O(1), worst O(n)
+  - Remove by key: average O(1), worst O(n)
+
+- Example:
+  HashMap<String, Integer> map = new HashMap<>();
+  map.put("a", 10);
+  map.put("b", 20);
+  System.out.println(map.get("a"));
+
+Python
+- Declaration using dict:
+  mp = {}
+- Initialization:
+  mp = {"apple": 5, "banana": 3}
+  mp["orange"] = 7
+
+- Basic operations:
+  - mp[key] = value
+  - mp.get(key)
+  - mp.pop(key)
+  - key in mp
+  - len(mp)
+
+- Time complexity:
+  - Insert: average O(1)
+  - Access by key: average O(1)
+  - Remove by key: average O(1)
+
+- Example:
+  mp = {}
+  mp["a"] = 10
+  mp["b"] = 20
+  print(mp["a"])
+
+Comparison: map vs unordered_map / HashMap vs TreeMap / dict
+- unordered_map in C++ and HashMap in Java are usually faster for average lookup because they use hashing.
+- map in C++ and TreeMap in Java keep keys sorted, but operations are usually O(log n).
+- Python dict is also hash-based and gives average O(1) lookup.
+- Use hashing-based versions when speed is important and order does not matter.
+- Use ordered versions when you need sorted traversal or range queries.
+
+Competitive Programming Tips
+- Use a map/hashmap when you need fast lookup by key.
+- Use unordered_map/HashMap/dict for average O(1) operations.
+- Use ordered map types if you need sorted keys.
+- Always handle missing keys carefully when using get or find.

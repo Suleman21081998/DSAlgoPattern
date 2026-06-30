@@ -1,0 +1,57 @@
+String Declaration and Initialization for Competitive Programming
+
+Definition
+- A string is a sequence of characters used to store text.
+- In competitive programming, strings are commonly used for input processing, pattern matching, parsing, and substring problems.
+- Important points:
+  - Strings are immutable in Java and Python, but mutable in C++ if you use character arrays or certain APIs.
+  - In C++, string is a class from <string>; in Java, String is a class; in Python, str is built-in.
+  - Indexing usually starts from 0.
+
+Declaration vs Initialization
+- Declaration: telling the compiler/language about the variable name and type.
+- Initialization: assigning a value to the variable.
+
+C++
+- Declaration:
+  string s;
+- Initialization:
+  string s1 = "hello";
+  string s2("world");
+  string s3 = string(5, 'a');   // "aaaaa"
+- Empty string:
+  string s4 = "";
+- Character array style:
+  char ch[10] = "abc";
+
+Java
+- Declaration:
+  String s;
+- Initialization:
+  String s1 = "hello";
+  String s2 = new String("world");
+  String s3 = "";
+- Character array:
+  char[] ch = {'a', 'b', 'c'};
+
+Python
+- Declaration:
+  s = None
+- Initialization:
+  s1 = "hello"
+  s2 = 'world'
+  s3 = ""
+  s4 = str(123)
+- Multiple strings:
+  s5 = "abc" * 3   // "abcabcabc"
+
+Common String Operations
+- Access character: s[0] or s.charAt(0)
+- Length: s.size(), s.length(), len(s)
+- Concatenation: s1 + s2
+- Comparison: compare lexicographically
+
+Competitive Programming Tips
+- Use string for text problems and char arrays for low-level or fixed-size cases.
+- In Java and Python, strings are immutable, so creating many new strings can be slower.
+- In C++, use string for simplicity unless you need C-style character operations.

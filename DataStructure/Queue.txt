@@ -1,0 +1,61 @@
+Queue Declaration and Initialization for Competitive Programming
+
+Definition
+- A queue is a linear data structure that follows the First In, First Out (FIFO) principle.
+- The first inserted element is removed first.
+- Common queue operations are:
+  - push/enqueue(x): insert element x at the back
+  - pop/dequeue(): remove the front element
+  - front()/peek(): view the front element
+  - empty(): check whether the queue is empty
+- Queues are useful for breadth-first search (BFS), scheduling, and processing tasks in order.
+
+C++
+- Declaration using queue:
+  queue<int> q;
+- Initialization:
+  queue<int> q1;
+  q1.push(10);
+  q1.push(20);
+  q1.push(30);
+- Empty queue:
+  queue<int> q2;
+- Copying another queue:
+  queue<int> q3 = q1;
+
+Java
+- Declaration using Queue interface:
+  Queue<Integer> q = new LinkedList<>();
+- Initialization:
+  Queue<Integer> q1 = new LinkedList<>();
+  q1.offer(10);
+  q1.offer(20);
+  q1.offer(30);
+- Access front element:
+  int front = q1.peek();
+- Remove front element:
+  int removed = q1.poll();
+
+Python
+- Declaration using list as a queue:
+  queue = []
+- Initialization:
+  queue = [10, 20, 30]
+- Enqueue operation:
+  queue.append(10)
+  queue.append(20)
+- Dequeue operation:
+  queue.pop(0)
+- Front element:
+  queue[0]
+
+Basic Operations Summary
+- Enqueue / push: add an element to the back
+- Dequeue / pop: remove an element from the front
+- Front / peek: see the first element without removing it
+- Empty: check if the queue is empty
+
+Competitive Programming Tips
+- Use queues for level-order traversal and BFS.
+- Always check whether the queue is empty before accessing the front or removing an element.
+- In Python, collections.deque is more efficient than list for queue operations.

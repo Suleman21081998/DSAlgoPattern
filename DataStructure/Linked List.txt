@@ -1,0 +1,124 @@
+Linked List Declaration and Initialization for Competitive Programming
+
+Definition
+- A linked list is a linear data structure where each element is a node.
+- Each node stores data and a pointer/reference to the next node.
+- It is useful when frequent insertion and deletion are needed.
+- Unlike arrays, linked lists do not store elements in contiguous memory.
+
+Important Idea: Internal Working
+- Each node contains data and a link to the next node.
+- The first node is called the head.
+- The last node points to null (or None).
+- Traversal is done by moving from one node to the next.
+- Insertion and deletion are easier than arrays because only pointers need to be changed.
+
+C++
+- Declaration using struct node:
+  struct Node {
+      int data;
+      Node* next;
+  };
+- Creating a head pointer:
+  Node* head = nullptr;
+
+- Initialization:
+  Node* first = new Node{10, nullptr};
+  Node* second = new Node{20, nullptr};
+  first->next = second;
+  head = first;
+
+- Basic operations:
+  - insert at head
+  - insert at tail
+  - delete a node
+  - traverse the list
+  - find an element
+
+- Time complexity:
+  - Insert at head: O(1)
+  - Insert at tail: O(n) if tail is not tracked, O(1) if tail is tracked
+  - Access by index: O(n)
+  - Remove by value: O(n)
+
+- Example:
+  Node* head = new Node{10, nullptr};
+  head->next = new Node{20, nullptr};
+
+Java
+- Declaration using class Node:
+  class Node {
+      int data;
+      Node next;
+  }
+- Creating a head reference:
+  Node head = null;
+
+- Initialization:
+  Node first = new Node();
+  first.data = 10;
+  first.next = null;
+
+  Node second = new Node();
+  second.data = 20;
+  second.next = null;
+
+  first.next = second;
+  Node head = first;
+
+- Basic operations:
+  - addFirst
+  - addLast
+  - removeFirst
+  - removeLast
+  - traverse
+  - search
+
+- Time complexity:
+  - Insert at head: O(1)
+  - Insert at tail: O(n) if tail is not tracked, O(1) if tail is tracked
+  - Access by index: O(n)
+  - Remove by value: O(n)
+
+- Example:
+  Node first = new Node();
+  first.data = 10;
+  first.next = null;
+
+Python
+- Declaration using class Node:
+  class Node:
+      def __init__(self, data=0, next=None):
+          self.data = data
+          self.next = next
+- Creating a head pointer:
+  head = None
+
+- Initialization:
+  first = Node(10)
+  second = Node(20)
+  first.next = second
+  head = first
+
+- Basic operations:
+  - insert at head
+  - insert at tail
+  - delete a node
+  - traverse
+  - search
+
+- Time complexity:
+  - Insert at head: O(1)
+  - Insert at tail: O(n)
+  - Access by index: O(n)
+  - Remove by value: O(n)
+
+- Example:
+  head = Node(10)
+  head.next = Node(20)
+
+Competitive Programming Tips
+- Use linked list when you need frequent insertion and deletion.
+- Use arrays or vectors when you need fast random access.
+- Be careful with pointer/reference handling in C++ and Java.
+- In Python, linked lists are usually less common than lists because Python lists are already dynamic.

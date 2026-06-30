@@ -1,0 +1,120 @@
+Set / HashSet Declaration and Initialization for Competitive Programming
+
+Definition
+- A set is a collection of unique elements.
+- It does not allow duplicates.
+- It is useful for membership checks, removing duplicates, and storing distinct values.
+- In many languages, sets are implemented using hash tables, which makes lookup very fast.
+
+Important Idea: Internal Working
+- A hash set stores elements using a hash function.
+- The hash function converts an element into an index in an internal table.
+- If two elements produce the same hash, a collision occurs.
+- Collisions are handled using techniques like chaining or open addressing.
+- Because of this, average-time lookup is very fast.
+
+C++
+- Declaration using unordered_set:
+  unordered_set<int> st;
+- Declaration using set (ordered):
+  set<int> st;
+
+- Initialization:
+  unordered_set<int> st;
+  st.insert(10);
+  st.insert(20);
+  st.insert(30);
+
+  set<int> orderedSt;
+  orderedSt.insert(10);
+  orderedSt.insert(20);
+  orderedSt.insert(30);
+
+- Basic operations:
+  - insert(x)
+  - erase(x)
+  - find(x)
+  - count(x)
+  - size()
+  - empty()
+
+- Time complexity:
+  - Insert: average O(1), worst O(n)
+  - Access/Check membership: average O(1), worst O(n)
+  - Remove: average O(1), worst O(n)
+
+- Example:
+  unordered_set<int> st = {1, 2, 3};
+  st.insert(4);
+  if (st.find(2) != st.end()) cout << "found";
+
+Java
+- Declaration using HashSet:
+  HashSet<Integer> set = new HashSet<>();
+- Declaration using TreeSet (sorted):
+  TreeSet<Integer> set = new TreeSet<>();
+
+- Initialization:
+  HashSet<Integer> set = new HashSet<>();
+  set.add(10);
+  set.add(20);
+  set.add(30);
+
+  TreeSet<Integer> sortedSet = new TreeSet<>();
+  sortedSet.add(10);
+  sortedSet.add(20);
+  sortedSet.add(30);
+
+- Basic operations:
+  - add(x)
+  - remove(x)
+  - contains(x)
+  - size()
+  - isEmpty()
+
+- Time complexity:
+  - Insert: average O(1), worst O(n)
+  - Access/Check membership: average O(1), worst O(n)
+  - Remove: average O(1), worst O(n)
+
+- Example:
+  HashSet<Integer> set = new HashSet<>();
+  set.add(1);
+  set.add(2);
+  System.out.println(set.contains(2));
+
+Python
+- Declaration using set:
+  st = set()
+- Initialization:
+  st = {1, 2, 3}
+  st.add(4)
+
+- Basic operations:
+  - add(x)
+  - remove(x)
+  - x in st
+  - len(st)
+  - discard(x)
+
+- Time complexity:
+  - Insert: average O(1)
+  - Access/Check membership: average O(1)
+  - Remove: average O(1)
+
+- Example:
+  st = {1, 2, 3}
+  st.add(4)
+  print(2 in st)
+
+Comparison: unordered_set / HashSet / set
+- unordered_set in C++ and HashSet in Java are usually faster for average membership checks because they use hashing.
+- set in C++ and TreeSet in Java keep elements sorted, but operations are usually O(log n).
+- Python set is also hash-based and gives average O(1) operations.
+- Use hashing-based sets when speed matters and order is not important.
+- Use ordered sets when sorted traversal is needed.
+
+Competitive Programming Tips
+- Use a set when you need to store only distinct elements.
+- Use sets for fast membership tests and duplicate removal.
+- Always remember that sets do not keep duplicates.

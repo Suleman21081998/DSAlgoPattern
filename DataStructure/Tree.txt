@@ -1,0 +1,119 @@
+Tree Declaration and Initialization for Competitive Programming
+
+Definition
+- A tree is a hierarchical data structure made of nodes.
+- It has one root node and each node can have zero or more child nodes.
+- A tree is connected and has no cycles.
+- Common types include binary tree, binary search tree, AVL tree, and heap.
+
+Important Idea: Internal Working
+- Each node stores data and references to its children.
+- The root is the topmost node.
+- Parent-child relationships define the structure.
+- Traversal is done using DFS (preorder, inorder, postorder) or BFS.
+- In a binary search tree, left child < parent < right child.
+
+C++
+- Declaration using struct Node:
+  struct Node {
+      int data;
+      Node* left;
+      Node* right;
+  };
+- Creating a root node:
+  Node* root = nullptr;
+
+- Initialization:
+  root = new Node{10, nullptr, nullptr};
+  root->left = new Node{5, nullptr, nullptr};
+  root->right = new Node{15, nullptr, nullptr};
+
+- Basic operations:
+  - insert(value)
+  - search(value)
+  - delete(value)
+  - inorder traversal
+  - preorder traversal
+  - postorder traversal
+
+- Time complexity:
+  - Insert in BST: average O(log n), worst O(n)
+  - Search in BST: average O(log n), worst O(n)
+  - Delete in BST: average O(log n), worst O(n)
+  - Access by index: not applicable, tree is hierarchical
+
+- Example:
+  Node* root = new Node{10, nullptr, nullptr};
+  root->left = new Node{5, nullptr, nullptr};
+
+Java
+- Declaration using class Node:
+  class Node {
+      int data;
+      Node left, right;
+  }
+- Creating a root node:
+  Node root = null;
+
+- Initialization:
+  Node root = new Node();
+  root.data = 10;
+  root.left = new Node();
+  root.left.data = 5;
+  root.right = new Node();
+  root.right.data = 15;
+
+- Basic operations:
+  - insert(value)
+  - search(value)
+  - delete(value)
+  - inorder traversal
+  - preorder traversal
+  - postorder traversal
+
+- Time complexity:
+  - Insert in BST: average O(log n), worst O(n)
+  - Search in BST: average O(log n), worst O(n)
+  - Delete in BST: average O(log n), worst O(n)
+
+- Example:
+  Node root = new Node();
+  root.data = 10;
+
+Python
+- Declaration using class Node:
+  class Node:
+      def __init__(self, data=0):
+          self.data = data
+          self.left = None
+          self.right = None
+- Creating a root node:
+  root = None
+
+- Initialization:
+  root = Node(10)
+  root.left = Node(5)
+  root.right = Node(15)
+
+- Basic operations:
+  - insert(value)
+  - search(value)
+  - delete(value)
+  - inorder traversal
+  - preorder traversal
+  - postorder traversal
+
+- Time complexity:
+  - Insert in BST: average O(log n), worst O(n)
+  - Search in BST: average O(log n), worst O(n)
+  - Delete in BST: average O(log n), worst O(n)
+
+- Example:
+  root = Node(10)
+  root.left = Node(5)
+
+Competitive Programming Tips
+- Use trees when data has a hierarchical relationship.
+- Binary search trees are useful for fast searching when balanced.
+- For guaranteed fast operations, use balanced trees like AVL or Red-Black Tree.
+- In competitive programming, recursion is commonly used for tree traversal.
